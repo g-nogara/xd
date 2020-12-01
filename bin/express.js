@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const variables = require('../bin/configuration/variables');
+const cors = require('cors');
 
 //routers
 const deckRouter = require('../routes/deck-router');
@@ -14,6 +15,9 @@ const app = express();
 //Configuração de parse do JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//Permitindo conexões de outras origens
+app.use(cors());
 
 //Configurando a conexão com banco de dados
 mongoose.connect(variables.Database.connection, { useNewUrlParser: true });

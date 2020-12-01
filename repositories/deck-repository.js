@@ -1,4 +1,5 @@
 require('../models/deck-model');
+const mongoose = require('mongoose');
 const base = require('../bin/base/repository-base');
 
 class deckRepository {
@@ -21,6 +22,10 @@ class deckRepository {
 
     async getById(id) {
         return await this._base.getById(id);
+    }
+
+    async getByOwner(owner) {
+        return await mongoose.model('Deck').find({ dono: owner }).exec();
     }
 
     async delete(id) {
