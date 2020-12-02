@@ -8,10 +8,10 @@ const auth = require('../middlewares/authenctication');
 const _ctrl = new controller();
 
 router.get('/', auth, _ctrl.get);
-router.get('/:id', auth, _ctrl.getById);
+router.get('/:id', _ctrl.getById);
 router.patch('/owner', _ctrl.getByOnwer);
-router.post('/', auth, _ctrl.post);
-router.put('/:id', auth, _ctrl.put);
-router.delete('/:id', auth, _ctrl.delete);
+router.post('/', _ctrl.post);
+router.put('/:id', _ctrl.put);
+router.delete('/:id', _ctrl.delete);
 
 module.exports = router;

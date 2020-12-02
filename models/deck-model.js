@@ -6,8 +6,8 @@ const schema = mongoose.Schema;
 const deckModel = new schema({
     titulo: { trim: true, index: true, required: true, type: String },
     descricao: { type: String },
-    ativa: { type: Boolean, required: true, default: true },
-    dono: { type: String },
+    formato: { type: String },
+    dono: { type: String, index: true, required: true },
     cards: { type: Array },
     dataCriacao: { type: Date, default: Date.now }
 }, { versionKey: false });
