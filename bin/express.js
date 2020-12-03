@@ -6,8 +6,6 @@ const cors = require('cors');
 
 //routers
 const deckRouter = require('../routes/deck-router');
-const cartaRouter = require('../routes/carta-router');
-const usuarioRouter = require('../routes/usuario-router');
 
 //Criando/Invocando a Api/Server Web do Express
 const app = express();
@@ -24,9 +22,6 @@ mongoose.connect(variables.Database.connection, { useNewUrlParser: true });
 
 //Configurando as rotas
 app.use('/api/deck', deckRouter);
-app.use('/api/produto', cartaRouter);
-app.use('/api/usuario', usuarioRouter);
-
 
 //Exportando nossa Api
 module.exports = app;
